@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<br>
+<div class="bckgnd">
+<div class="container-fuild">
+<div class="jumbotron text-center">
+  <h2> Dashbaord <small> Welcome {{ session.username}} </small></h2>
+</div class="container-fuild center">
+<a class="btn btn-warning btn-md" href="/music_dashboard">Music Dashboard</a>
+
+
+<a class="btn btn-warning btn-md" href="/news_dashboard">News Dasboard</a>
+<hr>
+
+
+		<audio controls>
+			<source src="static/audios/Gutamiza.mp3" type="audio/mp3">
+		</audio><br>
+		<a href="static/audios/Gutamiza.mp3" download="" class="btn btn-danger btn-xs">Download</a>
+		</div>
+		<br><br>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<br>
+<div class="bckgnd">
+
+	<div class="item">
+	<video width="300" controls>
+    <source src="video/Charass.mp4" type="video/mp4">
+    </video>		
+	<h3 class="item-title">Deserunt mollitia animi</h3>
+	<span class="year">2014</span>
+		<a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-download">Download</span></a>
+		<a href="#" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-tick">Play</span></a>
+		<a href="#" class="btn btn-info btn-xs">Like</a>
+	</div>
+
+
+<script type="text/javascript">
+	var likes = 0;// global variable
+	function like(){
+		document.getElementById("show").innerHTML=likes;
+		likes = likes + 1;
+	}
+					
+</script>
+		<br><br><br>
+		<button onclick="like()">Like<p id="show" type="text"></p></button>
+		
+
+		<br><br><br>
+
+
+
+</div>
+
+
+{% endblock %}

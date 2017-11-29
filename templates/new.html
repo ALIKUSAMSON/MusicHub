@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<style>
+  section{
+    background-image: url('static/img/background.jpg');
+  }
+</style>
+
+<br>
+<section>
+<div class="bckgnd">
+<div class="row">
+ 	<div class="col-md-6">
+ 	 	<img src="{{ url_for('static',filename='uploads/images/'+new.news_image) }}" type="image/jpeg" class="img-thumbnail" class="img-responsive" style="width:100%">
+ 	 <div>
+    <a href="#"><i class="glyphicon glyphicon-thumbs-user"></i>  Username</a>
+
+    <a href="#"><i class="glyphicon glyphicon-comment"></i>   2</a>
+    
+    <a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>   152</a>
+    
+    <a href="#"><i class="glyphicon glyphicon-thumbs-down"></i>    26</a>
+  </div>
+ 	 </div>
+ 	
+  	<div class="col-md-6">
+  	 <h2>{{new.story_title}}</h2>
+  	 <br>
+  	 <small class="glyphicon glyphicon-time">      Posted on {{new.create_date}}</small>
+  	 <br><br>
+  		{{new.body | safe}}
+  	</div>
+</div>
+</div>
+</section>
+
+
+{% endblock %}
+
+
+

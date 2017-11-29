@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'messages.html' %}
+
+
+<br>
+<div class="bckgnd">
+
+  <div class="container">
+  <div class="col-lg-2"></div>
+<div class="col-lg-8 ">
+<br><br>
+   <br><br>
+    <h2>Login Here</h2>
+    <form method="POST" action="/login">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+     
+        {{form.username.label}}
+        {% if form.username.errors %}
+          {% for error in form.username.errors %}
+            <p class="error-message">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+        {{form.username(class="form-control")}}
+      
+      </div>
+      <div class="form-group">
+  
+        {{form.password.label}}
+        {% if form.password.errors %}
+          {% for error in form.password.errors %}
+            <p class="error-message">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+        {{form.password(class="form-control")}}
+        
+      </div>
+ 
+           <br>
+      {{form.submit(class="btn btn-default")}}
+      
+    </form>
+    <br><br>
+       <br><br>
+  </div>
+    <div class="col-lg-2"></div>
+  <br><br>
+</div>
+</div>
+
+{% endblock %}
+

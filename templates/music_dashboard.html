@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'messages.html'%}
+
+<br>
+<div class="bckgnd">
+<div class="container-fuild">
+<div class="jumbotron text-center">
+  <h2> Music Dashbaord </h2>
+  <small> Welcome {{ session.username}} </small>
+</div>
+
+<a class="btn btn-success" href="/upload_audio"><span class="glyphicon glyphicon-upload">Upload Audio</a>
+<hr>
+<div class="container">
+<table class="table table-striped">
+<tr>
+	<th>ID</th>
+	<th>Song Title</th>
+	<th>Artist Name</th>
+	<th>Uploaded Song</th>
+</tr>
+
+{% for song in songs %}
+<tr>
+	<td>{{ song.id }}</td>
+	<td>{{ song.song_title }}</td>
+	<td>{{ song.artist_name }}</td>
+	<td>{{ song.song_upload }}</td>
+	<td><a href="/edit_song" class="btn btn-info pull-right btn-sm"><span class="glyphicon glyphicon-edit">Edit</a></td>
+	<td>
+		<form action="{{url_for('delete_music',id=song.id)}}" method="post" onsubmit="return confirm('Are you sure you want to delete?')">
+			<input type="hidden" name="method" value="DELETE">
+			<button type="submit" name="Delete"class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i>Delete</button>
+		</form>
+	</td>
+</tr>
+
+{% endfor %}
+
+</table>
+</div>
+</div>
+</div>
+{% endblock %}

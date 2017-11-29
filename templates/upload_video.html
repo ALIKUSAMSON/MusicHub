@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<br>
+<div class="bckgnd">
+<div class="jumbotron text-center">
+  <h3><strong>Upload Videos Here</strong></h3>
+</div>
+<div class="container">
+
+  <form method="POST" action="/upload_videos">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{form.artist_name.label}}
+      {{form.artist_name(class="form-control")}}
+    </div>
+      <div class="form-group">
+      {{form.song_title.label}}
+      {{form.song_title(class="form-control")}}
+    </div>
+    <div class="form-group">
+    {{form.upload.label}}
+    {{form.upload}}
+    </div>
+
+    {{form.submit(class="btn btn-primary")}}
+
+  </form>
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

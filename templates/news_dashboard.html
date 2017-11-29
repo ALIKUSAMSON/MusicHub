@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'messages.html'%}
+
+
+<br>
+
+<div class="bckgnd">
+<div class="jumbotron text-center">
+  <h2> News Dashbaord </h2>
+  <small> Welcome {{ session.username}} </small>
+</div>
+
+<a class="btn btn-success" href="/upload_news"><span class="glyphicon glyphicon-upload">Upload News</a>
+<hr>
+
+<div class="container" style="background-color:lightblue">
+<table class="table table-striped">
+<tr>
+	<th>ID</th>
+	<th>Story Title</th>
+	<th>Uploaded News Image</th>
+</tr>
+
+{% for new in news %}
+<tr>
+
+	<td>{{ new.id }}</td>
+	<td>{{ new.story_title }}</td>
+	<td>{{ new.news_image }}</td>
+	<td><a href="/edit_news" class="btn btn-info pull-right btn-sm"><span class="glyphicon glyphicon-edit">Edit</a></td>
+	<td>
+		<form action="{{url_for('delete_news',id=new.id)}}" method="post" onsubmit="return confirm('Are you sure you want to delete?')">
+			<input type="hidden" name="method" value="DELETE">
+			<button type="submit" name="Delete"class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i>Delete</button>
+		</form>
+	</td>
+</tr>
+
+{% endfor %}
+
+</table>
+</div>
+
+</div>
+
+{% endblock %}

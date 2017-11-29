@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<div class="bckgnd">
+<div class="panel panel-info text-center">
+   <div class="panel-heading"><h2>MusicHub News</h2></div>
+</div>
+
+<div class="container-fluid bg-2 text-center">
+  <div class="row">
+  {% for new in news %}
+    <div class="col-sm-6">
+   <p><a href="new/{{new.id}}">{{new.story_title}}</a></p>  
+  <img src="{{ url_for('static',filename='uploads/images/'+new.news_image) }}" type="image/jpeg"  class="img-thumbnail" class="img-responsive" style="width:80%">
+
+      <div>
+    <a href="#"><i class="glyphicon glyphicon-thumbs-user"></i>  Username</a>
+
+    <a href="#"><i class="glyphicon glyphicon-comment"></i>   2</a>
+    
+    <a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>   152</a>
+    
+    <a href="#"><i class="glyphicon glyphicon-thumbs-down"></i>    26</a>
+  </div>
+
+
+  <br><br>
+    </div>
+   {% endfor %}
+  </div>
+</div><br>
+
+</div>
+
+
+
+{% endblock %}

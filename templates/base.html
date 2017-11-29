@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MusicHub</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+  <script src="{{url_for('static', filename='js/jquery-1.9.1.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+</head>
+<style>
+  body{
+    background-image: url('static/img/background.jpg');
+  }
+  h5,h1{
+    color: white;
+  }
+</style>
+<body>
+<header><div class="container-fluid" style="background-color:darkorange;height:100px;">
+  <h1>MusicHub</h1>
+  <h5>Your Music Partner</h5>
+</header>
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">MusicHub</a>
+        </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index">Home</a></li>
+        <li><a href="audios">Audios</a></li>
+        <li><a href="videos">Videos</a></li>
+        <li><a href="artists">Artists</a></li>
+        <li><a href="news">News</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+      {% if session.logged_in %}
+      <ul class="nav navbar-nav">
+      <li><a href="dashboard"> Dashboard</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li class="pull-right" ><a href="logout">Logout</a></li>
+      </ul>
+      {% else %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+         {% endif %}
+      <div class="form-group">
+      <input type="text" id="Search"> <button type="button" class="btn btn-primary">Search</button></div>
+  </div>
+</nav>
+
+</body>
+ 
+<div class="container">
+{%block content %}
+
+
+{% endblock %}
+
+  <div class="container-fluid" style="background-color: black;">
+        <div class="col-sm-2">
+          <h3>Navigation</h3>
+          <ul class="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="audios.html">Audios</a></li>
+            <li><a href="artists.html">Artists</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3">
+          <h3>Our Account</h3>
+            <ul class="list">
+            <li><a href="#" data-toggle="modal" data-target="#myModal5">Your Account</a></li>
+            <li><a href="#">Personal information</a></li>
+            <li><a href="#">Addresses</a></li>
+            <li><a href="#">Addresses</a></li>
+            <li><a href="#">Search Terms</a></li>
+            </ul>
+        </div>
+          <div class="col-sm-3">
+            <h3>About Us</h3>
+            <p>Your music partner</p>
+            <p>Phone:00-250-2131</p>
+            <p>Email :<span><a href="#">info(at)mailing.com</a></span></p> 
+           </div>
+            <div class="col-sm-4">
+            <h3>Newsletter</h3>
+            <p>Send us your email address to have access to posted news</p>
+            <div>
+             <form>
+               <input type="text" placeholder="Email...." required="">
+              <input type="submit" value="Submit">
+              </form>
+            </div>
+           </div>
+        </div>
+           <footer class="panel panel-inverse text-center" style="background-color: black;">
+  <h4><span class="copyright">Copyright &copy; MusicHub 2017</span></h4>
+</footer>
+</div>
+
+
+
+
+
+</body>
+</html>
